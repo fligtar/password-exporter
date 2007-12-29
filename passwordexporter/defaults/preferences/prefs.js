@@ -1,0 +1,1 @@
+pref("extensions.{B17C1C5A-04B1-11DB-9804-B622A1EF5492}.description", "chrome://passwordexporter/locale/passwordexporter.properties");

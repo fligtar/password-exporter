@@ -1,0 +1,28 @@
+content     passwordexporter    chrome/content/
+
+overlay	chrome://passwordmgr/content/passwordManager.xul	chrome://passwordexporter/content/pwdexTabOverlay.xul
+overlay	chrome://browser/content/preferences/preferences.xul	chrome://passwordexporter/content/prefOverlay.xul
+overlay	chrome://messenger/content/preferences/viewpasswords.xul	chrome://passwordexporter/content/pwdexTabOverlay.xul
+overlay	chrome://messenger/content/preferences/preferences.xul	chrome://passwordexporter/content/prefOverlay.xul	
+
+locale	passwordexporter	da-DK	chrome/locale/da-DK/
+locale	passwordexporter	de-DE	chrome/locale/de-DE/
+locale	passwordexporter	en-US	chrome/locale/en-US/
+locale	passwordexporter	es-AR	chrome/locale/es-AR/
+locale	passwordexporter	es-ES	chrome/locale/es-ES/
+locale	passwordexporter	fa-IR	chrome/locale/fa-IR/
+locale	passwordexporter	fr-FR	chrome/locale/fr-FR/
+locale	passwordexporter	hr-HR	chrome/locale/hr-HR/
+locale	passwordexporter	hu-HU	chrome/locale/hu-HU/
+locale	passwordexporter	it-IT	chrome/locale/it-IT/
+locale	passwordexporter	nl-NL	chrome/locale/nl-NL/
+locale	passwordexporter	pl-PL	chrome/locale/pl-PL/
+locale	passwordexporter	pt-BR	chrome/locale/pt-BR/
+locale	passwordexporter	ru-RU	chrome/locale/ru-RU/
+locale	passwordexporter	sk-SK	chrome/locale/sk-SK/
+locale	passwordexporter	sq-AL	chrome/locale/sq-AL/
+locale	passwordexporter	tr-TR	chrome/locale/tr-TR/
+locale	passwordexporter	uk-UA	chrome/locale/uk-UA/
+locale	passwordexporter	zh-TW	chrome/locale/zh-TW/
+
+skin	passwordexporter	classic/1.0	chrome/skin/
