@@ -3,72 +3,78 @@
 <RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:em="http://www.mozilla.org/2004/em-rdf#">
 
-	<Description about="urn:mozilla:install-manifest">
-		<em:id>{B17C1C5A-04B1-11DB-9804-B622A1EF5492}</em:id>
-		<em:version>1.1b1</em:version>
-		<em:type>2</em:type>
-		<em:name>Password Exporter</em:name>
-		<em:description>Export and import your saved passwords.</em:description>
-		<em:homepageURL>http://passwordexporter.fligtar.com</em:homepageURL>
-		<em:optionsURL>chrome://passwordexporter/content/pwdexDialog.xul</em:optionsURL>
-		<em:iconURL>chrome://passwordexporter/skin/logo.png</em:iconURL>
-		<em:creator>Justin Scott</em:creator>
-		<em:translator>da-DK: AlleyKat</em:translator>
-		<em:translator>de-DE: 0815horst</em:translator>
-		<em:translator>es-AR: ZuGro</em:translator>
-		<em:translator>es-ES: ZuGro</em:translator>
-		<em:translator>fa-IR: Pedram Veisi</em:translator>
-		<em:translator>fr-FR: jojaba</em:translator>
-		<em:translator>hr-HR: Krcko</em:translator>
-		<em:translator>hu-HU: mkaszman, kami</em:translator>
-		<em:translator>it-IT: gonzalopirobutirro</em:translator>
-		<em:translator>nl-NL: markh</em:translator>
-		<em:translator>pl-PL: teo</em:translator>
-		<em:translator>pt-BR: fernph</em:translator>
-		<em:translator>ru-RU: stoneflash</em:translator>
-		<em:translator>sk-SK: Gianny111</em:translator>
-		<em:translator>tr-TR: SerdarSahin</em:translator>
-		<em:translator>uk-UA: MozUA</em:translator>
-		<em:translator>zh-TW: Unicorn2</em:translator>
-		<em:contributor>Everyone at Babelzilla.org</em:contributor>
-		<em:contributor>Robert Pourteau (Songbird Support)</em:contributor>
-                <em:contributor>Justin Dolske</em:contributor>
-		
-   		<!-- Mozilla Firefox -->
-		<em:targetApplication>
-			<Description>
-				<em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
-				<em:minVersion>2.0</em:minVersion>
-				<em:maxVersion>3.0b3</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-	
-		<!-- Mozilla Thunderbird -->
-		<em:targetApplication>
-			<Description>
-				<em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
-				<em:minVersion>1.5</em:minVersion>
-				<em:maxVersion>2.0.0.*</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		
-		<!-- Flock -->
-		<em:targetApplication>
-			<Description>
-				<em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
-				<em:minVersion>0.4</em:minVersion>
-				<em:maxVersion>1.0+</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-		
-		<!-- Songbird -->
-		<em:targetApplication>
-			<Description>
-				<em:id>songbird@songbirdnest.com</em:id>
-				<em:minVersion>0.1</em:minVersion>
-				<em:maxVersion>1.0+</em:maxVersion>
-			</Description>
-		</em:targetApplication>
-   
-	</Description>      
+    <Description about="urn:mozilla:install-manifest">
+        <em:id>{B17C1C5A-04B1-11DB-9804-B622A1EF5492}</em:id>
+        <em:version>1.1b1</em:version>
+        <em:type>2</em:type>
+        <em:name>Password Exporter</em:name>
+        <em:creator>Justin Scott</em:creator>
+        
+        <!-- Chrome URLs -->
+        <em:description>Export and import your saved passwords.</em:description>
+        <em:homepageURL>http://passwordexporter.fligtar.com</em:homepageURL>
+        <em:optionsURL>chrome://passwordexporter/content/pwdexDialog.xul</em:optionsURL>
+        <em:iconURL>chrome://passwordexporter/skin/logo.png</em:iconURL>
+        
+        <!-- Translators -->
+        <em:translator>da-DK: AlleyKat</em:translator>
+        <em:translator>de-DE: 0815horst</em:translator>
+        <em:translator>es-AR: ZuGro</em:translator>
+        <em:translator>es-ES: ZuGro</em:translator>
+        <em:translator>fa-IR: Pedram Veisi</em:translator>
+        <em:translator>fr-FR: jojaba</em:translator>
+        <em:translator>hr-HR: Krcko</em:translator>
+        <em:translator>hu-HU: mkaszman, kami</em:translator>
+        <em:translator>it-IT: gonzalopirobutirro</em:translator>
+        <em:translator>ja-JP: drry</em:translator>
+        <em:translator>nl-NL: markh</em:translator>
+        <em:translator>pl-PL: teo</em:translator>
+        <em:translator>pt-BR: fernph</em:translator>
+        <em:translator>ru-RU: stoneflash</em:translator>
+        <em:translator>sk-SK: Gianny111</em:translator>
+        <em:translator>tr-TR: SerdarSahin</em:translator>
+        <em:translator>uk-UA: MozUA</em:translator>
+        <em:translator>zh-TW: Unicorn2</em:translator>
+        
+        <!-- Other Contributors -->
+        <em:contributor>Everyone at Babelzilla.org</em:contributor>
+        <em:contributor>Robert Pourteau (Songbird Support)</em:contributor>
+        <em:contributor>Justin Dolske</em:contributor>
+        
+        <!-- Mozilla Firefox -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
+                <em:minVersion>2.0</em:minVersion>
+                <em:maxVersion>3.0b3</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        
+        <!-- Mozilla Thunderbird -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+                <em:minVersion>1.5</em:minVersion>
+                <em:maxVersion>2.0.0.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        
+        <!-- Flock -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{a463f10c-3994-11da-9945-000d60ca027b}</em:id>
+                <em:minVersion>0.4</em:minVersion>
+                <em:maxVersion>1.0+</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        
+        <!-- Songbird -->
+        <em:targetApplication>
+            <Description>
+                <em:id>songbird@songbirdnest.com</em:id>
+                <em:minVersion>0.1</em:minVersion>
+                <em:maxVersion>1.0+</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+    </Description>      
 </RDF>
