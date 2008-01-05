@@ -5,7 +5,7 @@
 
     <Description about="urn:mozilla:install-manifest">
         <em:id>{B17C1C5A-04B1-11DB-9804-B622A1EF5492}</em:id>
-        <em:version>1.1b1</em:version>
+        <em:version>1.1</em:version>
         <em:type>2</em:type>
         <em:name>Password Exporter</em:name>
         <em:creator>Justin Scott</em:creator>
@@ -35,9 +35,10 @@
         <em:translator>tr-TR: SerdarSahin</em:translator>
         <em:translator>uk-UA: MozUA</em:translator>
         <em:translator>zh-TW: Unicorn2</em:translator>
+        <em:translator>Thanks to Babelzilla.org</em:translator>
         
         <!-- Other Contributors -->
-        <em:contributor>Everyone at Babelzilla.org</em:contributor>
+        <em:contributor>Thanks to the following people for their help and advice:</em:contributor>
         <em:contributor>Robert Pourteau (Songbird Support)</em:contributor>
         <em:contributor>Justin Dolske</em:contributor>
         
