@@ -15,6 +15,7 @@ locale	passwordexporter	fr-FR	jar:chrome/passwordexporter.jar!/locale/fr-FR/
 locale	passwordexporter	hr-HR	jar:chrome/passwordexporter.jar!/locale/hr-HR/
 locale	passwordexporter	hu-HU	jar:chrome/passwordexporter.jar!/locale/hu-HU/
 locale	passwordexporter	it-IT	jar:chrome/passwordexporter.jar!/locale/it-IT/
+locale	passwordexporter	ja-JP	jar:chrome/passwordexporter.jar!/locale/ja-JP/
 locale	passwordexporter	nl-NL	jar:chrome/passwordexporter.jar!/locale/nl-NL/
 locale	passwordexporter	pl-PL	jar:chrome/passwordexporter.jar!/locale/pl-PL/
 locale	passwordexporter	pt-BR	jar:chrome/passwordexporter.jar!/locale/pt-BR/
