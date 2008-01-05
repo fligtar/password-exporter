@@ -60,8 +60,7 @@ var passwordExporterPasswordMgr = {
                 
                 // Prompt user to select where to save the export
                 fp.init(window, passwordExporter.bundle.GetStringFromName('passwordexporter.filepicker-title'), fp.modeSave);
-                var date = new Date();
-                fp.defaultString = 'password-export-' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+                fp.defaultString = 'password-export-' + passwordExporter.getDateString();
                 fp.defaultExtension = '.xml';
                 fp.appendFilter(passwordExporter.bundle.GetStringFromName('passwordexporter.filepicker-save-xml'), '*.xml');
                 fp.appendFilter(passwordExporter.bundle.GetStringFromName('passwordexporter.filepicker-save-csv'), '*.csv');
@@ -242,8 +241,7 @@ var passwordExporterPasswordMgr = {
                 var stream = Components.classes["@mozilla.org/network/file-output-stream;1"].createInstance(Components.interfaces.nsIFileOutputStream);
                 
                 fp.init(window, passwordExporter.bundle.GetStringFromName('passwordexporter.filepicker-title'), fp.modeSave);
-                var date = new Date();
-                fp.defaultString = 'disabled-export-' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+                fp.defaultString = 'disabled-export-' + passwordExporter.getDateString();
                 fp.defaultExtension = '.xml';
                 fp.appendFilters(fp.filterXML);
                 

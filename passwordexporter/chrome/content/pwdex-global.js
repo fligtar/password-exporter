@@ -225,7 +225,19 @@ var passwordExporter = {
         document.getElementById('pwdex-view-passwords').disabled = false;
         document.getElementById('pwdex-close').disabled = false;
     },
+    
+    // returns current date in YYYY-MM-DD format for default file names
+    getDateString: function() {
+        var date = new Date();
+        
+        return date.getFullYear() + '-' + this.leadingZero(date.getMonth() + 1) + '-' + this.leadingZero(date.getDate());
+    },
 
+    // returns a number with leading zero
+    leadingZero: function(number) {
+        return (number < 10 ? '0' + number : number);
+    },
+    
     // checks preference for debug output
     checkDebug: function() {
         var prefs = Components.classes["@mozilla.org/preferences-service;1"].
