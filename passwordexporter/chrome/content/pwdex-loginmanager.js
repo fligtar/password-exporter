@@ -209,8 +209,12 @@ var passwordExporterLoginMgr = {
         
         // escapes only quotes and ampersands so that it will parse correctly in XML
         escapeQuote: function(string) {
+            string = string.replace(/%/gi, '%25');
+            string = string.replace(/</gi, '%3C');
+            string = string.replace(/>/gi, '%3E');
             string = string.replace(/"/gi, '%22');
             string = string.replace(/&/gi, '%26');
+            
             return string;
         },
         
@@ -534,18 +538,21 @@ var passwordExporterLoginMgr = {
                 yield i;
                 passwordExporter.debug('Adding: [hostname: ' + entries[i].hostname + ', httpRealm: ' + entries[i].httpRealm + ', formSubmitURL: ' + entries[i].formSubmitURL + ', username: ' + entries[i].username + ', usernameField: ' + entries[i].usernameField + ', passwordField: ' + entries[i].passwordField + ']');
                 
-                /* Due to a Login Manager bug (https://bugzilla.mozilla.org/show_bug.cgi?id=407567)
-                   we have to use a bogus formSubmitURL and modify it to be the real one, in case
-                   it's blank. */
+                // Fix for issue 39
+                if (entries[i].httpRealm) {
+                    entries[i].formSubmitURL = null;
+                }
+                else {
+                    entries[i].httpRealm = null;
+                }
                 
-                var bogusLoginInfo = new nsLoginInfo(entries[i].hostname, 'http://passwordexporter',
+                var loginInfo = new nsLoginInfo(entries[i].hostname, entries[i].formSubmitURL,
                             entries[i].httpRealm, entries[i].username,
                             entries[i].password, entries[i].usernameField,
                             entries[i].passwordField);
                 try {
                     // Add the login
-                    loginManager.addLogin(bogusLoginInfo);
-                    loginManager.modifyLogin(bogusLoginInfo, entries[i]);
+                    loginManager.addLogin(loginInfo);
                     
                     this.currentCount++;
                 }

@@ -133,23 +133,30 @@ var passwordExporterPasswordMgr = {
             var enumerator = passwordManager.enumerator;
             
             while (enumerator.hasMoreElements()) {
-                if (Components.interfaces.nsIPasswordInternal)
-                    nextPassword = enumerator.getNext().QueryInterface(Components.interfaces.nsIPasswordInternal);
-                else
-                    nextPassword = enumerator.getNext().QueryInterface(Components.interfaces.nsIPassword);
-                
-                if (nextPassword.formSubmitURL)
-                    var formSubmitURL = nextPassword.formSubmitURL;
-                else
-                    var formSubmitURL = null;
-                
-                if (type == 'xml') {
-                    this.entryToXML(nextPassword.host, formSubmitURL, null, nextPassword.user, nextPassword.userFieldName,
-                                nextPassword.password, nextPassword.passwordFieldName, encrypt);
-                }
-                else if (type == 'csv') {
-                    this.entryToCSV(nextPassword.host, formSubmitURL, null, nextPassword.user, nextPassword.userFieldName,
-                                nextPassword.password, nextPassword.passwordFieldName, encrypt);
+                try {
+                    if (Components.interfaces.nsIPasswordInternal)
+                        nextPassword = enumerator.getNext().QueryInterface(Components.interfaces.nsIPasswordInternal);
+                    else
+                        nextPassword = enumerator.getNext().QueryInterface(Components.interfaces.nsIPassword);
+                    
+                    if (nextPassword.formSubmitURL)
+                        var formSubmitURL = nextPassword.formSubmitURL;
+                    else
+                        var formSubmitURL = null;
+                    
+                    if (type == 'xml') {
+                        this.entryToXML(nextPassword.host, formSubmitURL, null, nextPassword.user, nextPassword.userFieldName,
+                                    nextPassword.password, nextPassword.passwordFieldName, encrypt);
+                    }
+                    else if (type == 'csv') {
+                        this.entryToCSV(nextPassword.host, formSubmitURL, null, nextPassword.user, nextPassword.userFieldName,
+                                    nextPassword.password, nextPassword.passwordFieldName, encrypt);
+                    }
+                } catch (e) {
+                    this.errorCount++;
+                    try {
+                        this.failed += nextPassword.host + passwordExporter.linebreak;
+                    } catch (e) { }
                 }
             }
             
@@ -223,6 +230,9 @@ var passwordExporterPasswordMgr = {
         
         // escapes only quotes and ampersands so that it will parse correctly in XML
         escapeQuote: function(string) {
+            string = string.replace(/%/gi, '%25');
+            string = string.replace(/</gi, '%3C');
+            string = string.replace(/>/gi, '%3E');
             string = string.replace(/"/gi, '%22');
             string = string.replace(/&/gi, '%26');
             return string;
