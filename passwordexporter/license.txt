@@ -1,10 +1,9 @@
 ****************************** WARNING ************************************
-When selecting to "encrypt" your usernames and passwords, the encryption
-used is easily decrypted and is meant only for hiding your passwords from a
-casual person opening the file. Anyone that really wants to decrypt your
-passwords could. Please take this into account when encrypting your
-passwords and never place your exported file(s) where others could access
-them.
+When selecting to "obfuscate" your usernames and passwords, note that this
+only makes the data not readable to the human eye, but is easily reversed.
+Even with this option selected, ANYONE CAN EASILY DISCOVER YOUR PASSWORDS.
+Please take this into account when exporting your passwords and never 
+place your exported file(s) where others could access them.
 
 Password Exporter and its creator(s) distribute these files on an 
 "AS IS" basis, without warranty of any kind, either express or implied,
