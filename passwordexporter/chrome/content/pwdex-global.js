@@ -40,13 +40,11 @@
  * This file contains functions used by all flavors of Password Exporter
  */
 var CC_loginManager = Components.classes["@mozilla.org/login-manager;1"];
-var CC_passwordManager = Components.classes["@mozilla.org/passwordmanager;1"];
 
 var passwordExporter = {
     version: '1.1', // Incrementing requires new license acceptance
     bundle: null,
-    fxVersion: null,
-    isThunderbird: false,
+    appName: null,
     linebreak: null,
     accepted: false, // whether user has accepted this version's license
     dumpDebug: false, // whether debug message should be dumped to console
@@ -60,46 +58,13 @@ var passwordExporter = {
         this.checkDebug();
         this.bundle = srGetStrBundle("chrome://passwordexporter/locale/passwordexporter.properties");
         this.linebreak = this.getLinebreak();
+        this.appName = Application.name;
         
-        /*
-        Due to changes in application versions over time, we break this up into 3 possibilities:
-            Firefox 1.5/Thunderbird/Flock/Songbird:
-                            - Button on Privacy tab of Preferences window
-                            - Tab for importing/exporting in Passwords dialog
-                            - Uses nsIPasswordManager
-            Firefox 2.0:
-                            - Button on Security tab of Preferences window
-                            - Uses nsIPasswordManager
-            Firefox 3.0:
-                            - Button Security tab of Preferences window
-                            - Uses nsILoginManager
-        */
-    
-        if (document.getElementById('tabbox'))
-            this.fxVersion = 1.5;
-        else if (CC_passwordManager != null)
-                this.fxVersion = 2;
-        if (CC_loginManager != null)
-            this.fxVersion = 3;
+        this.debug('App: ' + this.appName);
         
-        this.debug('Firefox or equivalent version detected: ' + this.fxVersion);
-        
-        if (this.fxVersion < 3 && !Components.interfaces.nsIPasswordInternal) {
-            this.isThunderbird = true;
-            this.debug('Thunderbird detected');
-        }
-        
-        // Include appropriate import/export functions
-        if (this.fxVersion >= 3) {
-            this.export = passwordExporterLoginMgr.export;
-            this.import = passwordExporterLoginMgr.import;
-            this.debug('Import/Export functions set to LoginMgr');
-        }
-        else {
-            this.export = passwordExporterPasswordMgr.export;
-            this.import = passwordExporterPasswordMgr.import;
-            this.debug('Import/Export functions set to PasswordMgr');
-        }
+        // Include import/export functions
+        this.export = passwordExporterLoginMgr.export;
+        this.import = passwordExporterLoginMgr.import;
         
         this.initiated = true;
         
@@ -107,38 +72,31 @@ var passwordExporter = {
         if (document.getElementById('pwdex-dialog'))
             return;
         
+        // Set up UI
         var hbox;
-        
-        // If Firefox 1.5, add a new tab and the button
-        if (this.fxVersion < 2) {
-            var tabbox = document.getElementById('tabbox');
-            var tabs = tabbox.firstChild;
-            var newtab = document.createElement('tab');
-            newtab.setAttribute('label', this.bundle.GetStringFromName('passwordexporter.button-label'));
-            newtab.setAttribute('id', 'pwdex-tab');
-            tabs.appendChild(newtab);
-            
-            if (document.getElementById('savePasswords'))
-                hbox = document.getElementById('savePasswords').parentNode.parentNode.getElementsByTagName('hbox')[2];
-            else
-                document.getElementById('panePrivacy').addEventListener('paneload',  function(e) { passwordExporter.init(); }, false);
+        if (this.appName == 'Thunderbird' && document.getElementById('MailPreferences')) {
+            // Thunderbird
+            this.uiVersion = 4;
+            if (document.getElementById('securityPrefs')) {
+                this.debug('Security pane showing');
+                hbox = document.getElementById('securityPrefs').getElementsByTagName('tabpanel')[3].getElementsByTagName('hbox')[0];
+            }
+            else {
+                document.getElementById('paneSecurity').addEventListener('paneload',  function(e) { passwordExporter.init(); }, false);
+                this.debug('Security pane not showing; listener added');
+            }
         }
-        else if (this.fxVersion >= 2) {
+        else if (this.appName == 'Firefox') {
             // If the relevant pane is already showing, we can add the button now
             // Otherwise, we add a listener so we know when it is showing
             
-            // Thunderbird only
-            if (this.isThunderbird) {
-                if (document.getElementById('encryptEnabled'))
-                    hbox = document.getElementById('encryptEnabled').parentNode.getElementsByTagName('hbox')[1];
-                else
-                    document.getElementById('panePrivacy').addEventListener('paneload',  function(e) { passwordExporter.init(); }, false);
+            if (document.getElementById('showPasswordsBox')) {
+                this.debug('Security pane showing');
+                hbox = document.getElementById('showPasswordsBox');
             }
-            else {
-                if (document.getElementById('showPasswordsBox'))
-                    hbox = document.getElementById('showPasswordsBox');
-                else if (document.getElementById('paneSecurity'))
-                    document.getElementById('paneSecurity').addEventListener('paneload',  function(e) { passwordExporter.init(); }, false);
+            else if (document.getElementById('paneSecurity')) {
+                document.getElementById('paneSecurity').addEventListener('paneload',  function(e) { passwordExporter.init(); }, false);
+                this.debug('Security pane not showing; listener added');
             }
         }
         
@@ -157,8 +115,8 @@ var passwordExporter = {
     viewPasswords: function() {
         // using window.open, doing certain things will cause firefox to minimize completely when the window is closed
         // hence using window.opener.open
-        if (this.isThunderbird)
-            window.opener.open("chrome://messenger/content/preferences/viewpasswords.xul", "", "chrome,resizable,centerscreen,maximize=no");
+        if (this.appName == 'SeaMonkey')
+            window.opener.openDialog("chrome://communicator/content/passwordManager.xul", "", "chrome,resizable,centerscreen,maximize=no");
         else
             window.opener.open("chrome://passwordmgr/content/passwordManager.xul", "", "chrome,resizable,centerscreen,maximize=no");
     },
