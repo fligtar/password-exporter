@@ -5,7 +5,7 @@
 
     <Description about="urn:mozilla:install-manifest">
         <em:id>{B17C1C5A-04B1-11DB-9804-B622A1EF5492}</em:id>
-        <em:version>1.2</em:version>
+        <em:version>1.2.1</em:version>
         <em:type>2</em:type>
         <em:name>Password Exporter</em:name>
         <em:creator>Justin Scott</em:creator>
@@ -17,23 +17,31 @@
         <em:iconURL>chrome://passwordexporter/skin/logo.png</em:iconURL>
         
         <!-- Translators -->
+        <em:translator>cs-CZ: zvedavaolihen</em:translator>
         <em:translator>da-DK: AlleyKat</em:translator>
-        <em:translator>de-DE: 0815horst</em:translator>
+        <em:translator>de: 0815horst, Team erweiterungen.de</em:translator>
+        <em:translator>el: Sonickydon</em:translator>
         <em:translator>es-AR: ZuGro</em:translator>
         <em:translator>es-ES: ZuGro</em:translator>
-        <em:translator>fa-IR: Pedram Veisi</em:translator>
-        <em:translator>fr-FR: jojaba</em:translator>
+        <em:translator>fa-IR: Pedram Veisi, bahramm</em:translator>
+        <em:translator>fr: jojaba</em:translator>
+        <em:translator>he-IL: barryoni</em:translator>
         <em:translator>hr-HR: Krcko</em:translator>
         <em:translator>hu-HU: mkaszman, kami</em:translator>
-        <em:translator>it-IT: gonzalopirobutirro</em:translator>
+        <em:translator>it-IT: gonzalopirobutirro, Godai71</em:translator>
         <em:translator>ja-JP: drry</em:translator>
-        <em:translator>nl-NL: markh</em:translator>
+        <em:translator>nl: markh</em:translator>
         <em:translator>pl-PL: teo</em:translator>
         <em:translator>pt-BR: fernph</em:translator>
-        <em:translator>ru-RU: stoneflash</em:translator>
+        <em:translator>pt-PT: lloco</em:translator>
+        <em:translator>ru-RU: stoneflash, MRO Team</em:translator>
         <em:translator>sk-SK: Gianny111</em:translator>
+        <em:translator>sq-AL: unknown</em:translator>
+        <em:translator>sr: DakSrbija</em:translator>
+        <em:translator>sv-SE: lookslikepat</em:translator>
         <em:translator>tr-TR: SerdarSahin</em:translator>
-        <em:translator>uk-UA: MozUA</em:translator>
+        <em:translator>uk-UA: MozUA, tymofiy</em:translator>
+        <em:translator>zh-CN: Loviny</em:translator>
         <em:translator>zh-TW: Unicorn2</em:translator>
         <em:translator>Thanks to Babelzilla.org</em:translator>
         
@@ -47,7 +55,7 @@
             <Description>
                 <em:id>{ec8030f7-c20a-464f-9b0e-13a3a9e97384}</em:id>
                 <em:minVersion>2.0</em:minVersion>
-                <em:maxVersion>3.6a1pre</em:maxVersion>
+                <em:maxVersion>4.0b5pre</em:maxVersion>
             </Description>
         </em:targetApplication>
         
@@ -56,7 +64,7 @@
             <Description>
                 <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
                 <em:minVersion>1.5</em:minVersion>
-                <em:maxVersion>3.1a1pre</em:maxVersion>
+                <em:maxVersion>3.1.*</em:maxVersion>
             </Description>
         </em:targetApplication>
         
