@@ -76,5 +76,23 @@
                 <em:maxVersion>2.1b1</em:maxVersion>
             </Description>
         </em:targetApplication>
-    </Description>      
+
+        <!-- Komodo IDE -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{36E66FA0-F259-11D9-850E-000D935D3368}</em:id>
+                <em:minVersion>4.2</em:minVersion>
+                <em:maxVersion>4.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+    
+        <!-- Komodo Edit -->
+        <em:targetApplication>
+            <Description>
+                <em:id>{b1042fb5-9e9c-11db-b107-000d935d3368}</em:id>
+                <em:minVersion>4.0</em:minVersion>
+                <em:maxVersion>4.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+    </Description>
 </RDF>
