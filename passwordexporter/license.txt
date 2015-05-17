@@ -2,10 +2,10 @@
 When selecting to "obfuscate" your usernames and passwords, note that this
 only makes the data not readable to the human eye, but is easily reversed.
 Even with this option selected, ANYONE CAN EASILY DISCOVER YOUR PASSWORDS.
-Please take this into account when exporting your passwords and never 
+Please take this into account when exporting your passwords and never
 place your exported file(s) where others could access them.
 
-Password Exporter and its creator(s) distribute these files on an 
+Password Exporter and its creator(s) distribute these files on an
 "AS IS" basis, without warranty of any kind, either express or implied,
 including the security of your exported data.
 
@@ -29,7 +29,7 @@ The Initial Developer of the Original Code is
 Portions created by the Initial Developer are Copyright (C) 2006
 the Initial Developer. All Rights Reserved.
 
-Contributor(s): (none)
+Contributor(s): Jorge Villalobos <jorge@xulforge.com>
 
 Alternatively, the contents of this file may be used under the terms of
 either the GNU General Public License Version 2 or later (the "GPL"), or
