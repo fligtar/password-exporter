@@ -24,6 +24,26 @@ PwdEx.UI = {
   },
 
   /**
+   * Adds the password exporter button to the Firefox preferences page.
+   * @param aDocument the document to insert the button to.
+   */
+  addFxButton : function(aDocument) {
+    this._logger.debug("addFxButton");
+
+    let passButton = aDocument.getElementById("showPasswords");
+    let button = null;
+
+    if (null != passButton) {
+      button = this._createPwdExButton(aDocument);
+      passButton.parentNode.appendChild(button);
+    } else {
+      this._logger.error("addFxButton. Show Passwords button not found.");
+    }
+
+    return button;
+  },
+
+  /**
    * Adds the password exporter button to the Thunderbird preferences panel.
    * @param aDocument the document to insert the button to.
    */

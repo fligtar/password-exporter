@@ -6,6 +6,8 @@
 
 "use strict";
 
+const SCRIPT_URL = "chrome://pwdex-modules/content/frameScript.js";
+const UNLOAD_MSG = "PwdEx:unload"
 const THUNDERBIRD_ID = "{3550f703-e582-4d05-9a08-453d09bdfdc6}";
 const MAIL_PREFS_TYPE = "Mail:Preferences";
 
@@ -26,6 +28,7 @@ function shutdown(aData, aReason) {
 
 let PwdExBoot = {
   _logger : null,
+  _scriptURL : null,
 
   init : function() {
     Components.utils.import("resource://gre/modules/Services.jsm");
@@ -44,6 +47,13 @@ let PwdExBoot = {
       }
 
       Services.wm.addListener(this.windowListener);
+    } else {
+      let gmm =
+        Cc["@mozilla.org/globalmessagemanager;1"].
+          getService(Ci.nsIMessageListenerManager);
+
+      this._scriptURL = SCRIPT_URL + "?" + Math.random();
+      gmm.loadFrameScript(this._scriptURL, true);
     }
   },
 
@@ -58,6 +68,14 @@ let PwdExBoot = {
       while (enumerator.hasMoreElements()) {
         this.windowListener.removeUI(enumerator.getNext());
       }
+    } else {
+      let gmm =
+        Cc["@mozilla.org/globalmessagemanager;1"].
+          getService(Ci.nsIMessageListenerManager);
+
+      // prevent future tabs from loading the script.
+      gmm.removeDelayedFrameScript(this._scriptURL);
+      gmm.broadcastAsyncMessage(UNLOAD_MSG, this._scriptURL);
     }
 
     Components.utils.unload("chrome://pwdex-modules/content/ui.js");
