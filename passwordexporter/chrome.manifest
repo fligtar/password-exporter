@@ -2,17 +2,17 @@ content     passwordexporter    chrome/content/
 content     pwdex-modules       modules/
 
 locale      passwordexporter    da-DK   chrome/locale/da-DK/
-locale      passwordexporter    de-DE   chrome/locale/de-DE/
+locale      passwordexporter    de      chrome/locale/de/
 locale      passwordexporter    en-US   chrome/locale/en-US/
 locale      passwordexporter    es-AR   chrome/locale/es-AR/
 locale      passwordexporter    es-ES   chrome/locale/es-ES/
 locale      passwordexporter    fa-IR   chrome/locale/fa-IR/
-locale      passwordexporter    fr-FR   chrome/locale/fr-FR/
+locale      passwordexporter    fr      chrome/locale/fr/
 locale      passwordexporter    hr-HR   chrome/locale/hr-HR/
 locale      passwordexporter    hu-HU   chrome/locale/hu-HU/
 locale      passwordexporter    it-IT   chrome/locale/it-IT/
 locale      passwordexporter    ja-JP   chrome/locale/ja-JP/
-locale      passwordexporter    nl-NL   chrome/locale/nl-NL/
+locale      passwordexporter    nl      chrome/locale/nl/
 locale      passwordexporter    pl-PL   chrome/locale/pl-PL/
 locale      passwordexporter    pt-BR   chrome/locale/pt-BR/
 locale      passwordexporter    ru-RU   chrome/locale/ru-RU/
