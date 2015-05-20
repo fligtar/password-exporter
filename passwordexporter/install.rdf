@@ -5,7 +5,7 @@
 
     <Description about="urn:mozilla:install-manifest">
         <em:id>{B17C1C5A-04B1-11DB-9804-B622A1EF5492}</em:id>
-        <em:version>1.3</em:version>
+        <em:version>1.3.1</em:version>
         <em:type>2</em:type>
         <em:bootstrap>true</em:bootstrap>
         <em:name>Password Exporter</em:name>
